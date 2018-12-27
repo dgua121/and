@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/a123">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <com.baidu.aip.asrwakeup3.uiasr.view.view1.Top
+            android:id="@+id/activitymainTop111"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_vertical|center_horizontal|center"
+            android:text="Button" />
+
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="bottom"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-1912776650962590/7523312785"></com.google.android.gms.ads.AdView>
+        <!--<TextView
+            android:id="@+id/txtResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="18dp" />-->
+
+        <com.baidu.aip.asrwakeup3.uiasr.view.DguaPagerView
+            android:id="@+id/pager1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.baidu.aip.asrwakeup3.uiasr.view.DguaPagerView>
+
+    </LinearLayout>
+
+    <com.baidu.aip.asrwakeup3.uiasr.view.view1.DguaViewBackground1
+        android:id="@+id/activitymainDguaViewBackground111"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:text="Button"
+        android:visibility="visible" />
+
+
+</FrameLayout>
