@@ -17,7 +17,6 @@ import android.support.v4.content.ContextCompat;;
 import android.util.DisplayMetrics;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.baidu.aip.asrwakeup3.uiasr.gj.Test;
 import com.baidu.aip.asrwakeup3.uiasr.gongju.AuthService;
 import com.baidu.aip.asrwakeup3.core.inputstream.InFileStream;
@@ -33,7 +32,6 @@ import com.baidu.aip.asrwakeup3.uiasr.view.view1.TestFragment;
 import com.baidu.aip.asrwakeup3.uiasr.view.view1.TestFragment1;
 import com.baidu.aip.asrwakeup3.uiasr.view.view1.TestFragment2;
 import com.baidu.aip.asrwakeup3.uiasr.view.view1.Top;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
@@ -43,7 +41,6 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import static java.lang.Thread.sleep;
 
 public abstract class ActivityCommon extends FragmentActivity {
@@ -112,17 +109,14 @@ public abstract class ActivityCommon extends FragmentActivity {
         initPermission();
         AuthService.getAuth();
 
-        intent = new Intent(this, mewkservice.class);
-        startService(intent);// 启动短信服务
-
         WifiTool wi = new WifiTool();
         wi.getServerIP();
-        intent1 = new Intent(this, callService.class);
-        startService(intent1);// 启动电话服务
+
+        intent = new Intent(this, mewkservice.class);
+        startService(intent);// 启动短信服务
         initSoundPool();
 
-        //AppConnect.getInstance("a47b6141b47afbd724cf9a0c3eba99bd","a47b6141b47afbd724cf9a0c3eba99bd",this);
-    }
+        }
 
     public void nextnbms(final int mss1, final String ssss) {
 

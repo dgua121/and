@@ -9,7 +9,6 @@ import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
-
 import com.baidu.aip.asrwakeup3.uiasr.R;
 import com.baidu.aip.asrwakeup3.uiasr.activity.ActivityCommon;
 import com.baidu.aip.asrwakeup3.uiasr.activity.ActivityUiRecog;
@@ -17,10 +16,8 @@ import com.baidu.aip.asrwakeup3.uiasr.gj.Test;
 import com.baidu.aip.asrwakeup3.uiasr.gongju.HttpUtil;
 import com.baidu.aip.asrwakeup3.uiasr.gongju.unitData;
 import com.baidu.aip.asrwakeup3.uiasr.save.TestClient;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.HashMap;
 
 public class callService extends Service {
@@ -93,7 +90,7 @@ public class callService extends Service {
         if (msg.what == 125) {
             ActivityCommon.str = "over";//挂断电话
             ccc = 0;
-           // over();
+            // over();
         }
 
         if (msg.what == 100001) {
@@ -275,7 +272,7 @@ public class callService extends Service {
                 }
                 ActivityCommon.str = new Test(getApplication()).queryData2();
                 phone = ActivityCommon.str;
-
+                System.out.println(phone);
                 session = "";
             }
         }.start();
@@ -291,7 +288,7 @@ public class callService extends Service {
                 handleMsg(msg);
             }
         };
-      //  initSoundPool();
+        //  initSoundPool();
     }
 
     private void initSoundPool() {

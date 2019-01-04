@@ -26,26 +26,17 @@ public class Test {
     public void importSheet(String str) {
         try {
             // 1
-            //InputStream is = getClass().getResourceAsStream("/assets/2w.xls");
-            System.out.println(str);
             if (str != null) {
                 FileInputStream iss = new FileInputStream(new File("/storage/emulated/0/Download/phone.xls"));
-                //System.out.println(str);
-                //InputStream fis;
-                //fis = getClass().getResource(str).openStream();
-                // 2
                 Workbook book = Workbook.getWorkbook(iss);
                 // 3
                 Sheet sheet = book.getSheet(0);
-                int row = sheet.getRows();
                 // 4
                 for (int j = 1; j < sheet.getRows(); ++j) {
                     // 5
                     String a = sheet.getCell(0, j).getContents();
                     String a1 = sheet.getCell(1, j).getContents();
                     String a2 = sheet.getCell(2, j).getContents();
-                    //  String a3 = sheet.getCell(3, j).getContents();
-                    //            String a4 = sheet.getCell(4, j).getContents();
                     int aaaa=a2.length();
                     if(aaaa==11) {
                         String ss = a2.substring(0, 3);

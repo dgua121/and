@@ -231,12 +231,14 @@ public class mewkservice extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         Bundle bundle = intent.getExtras();
-        mp = ((SerializableMap) bundle.get("map")).getMap();
 
-        if (mp.get("other").toString().equals("false1")) {
-            idd = 0;
-        } else {
-            idd = Integer.parseInt(mp.get("other").toString());
+        mp = ((SerializableMap) bundle.get("map")).getMap();
+        if (mp.size()!=0) {
+            if (mp.get("other").toString().equals("false1")) {
+                idd = 0;
+            } else {
+                idd = Integer.parseInt(mp.get("other").toString());
+            }
         }
         return binder;
     }

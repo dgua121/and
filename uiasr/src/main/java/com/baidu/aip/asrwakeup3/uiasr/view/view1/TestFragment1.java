@@ -138,10 +138,15 @@ public class TestFragment1 extends Fragment {
                 if (message.what == 124) {
                     Map m = (Map) message.obj;
                     final int aaa = (int) ((Map) message.obj).get("n");
-                    final String sss = (String) ((Map) message.obj).get("w").toString();
+                    final String sss = (String) ((Map) message.obj).get("p").toString();
                     if ((int) (((MessageView) textView).getChildCount()) == 2) {
 
                         ((MessageView) textView).getchild1(1).setNU(aaa);
+                        Message me1 = new Message();
+                        me1.what = 1111;
+                        //me1.arg2 = aaa;
+                        me1.obj=m;
+                        ((DguaCtSubV1)(((MessageView) textView).getchild1(1))).pd.handler.sendMessage(me1);
                     }
                     new Thread() {
                         @Override

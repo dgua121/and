@@ -253,16 +253,13 @@ public abstract class ActivityUiRecog extends ActivityCommon implements IStatus 
         pager.setCurrentItem(1);
 
         MobileAds.initialize(this, "ca-app-pub-1912776650962590~4969958173");//app-key
-
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId("ca-app-pub-1912776650962590/4523004104");//chayeguanggao
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
-
         mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);// hengfuguanggao
-
 
     }
 

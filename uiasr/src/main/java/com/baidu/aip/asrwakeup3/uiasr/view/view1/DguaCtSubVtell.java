@@ -9,18 +9,26 @@ import android.os.IBinder;
 import android.view.MotionEvent;
 import android.widget.Toast;
 
+import com.baidu.aip.asrwakeup3.uiasr.Dailog.PhoneMenuDialog;
+import com.baidu.aip.asrwakeup3.uiasr.R;
+import com.baidu.aip.asrwakeup3.uiasr.activity.ActivityCommon;
+import com.baidu.aip.asrwakeup3.uiasr.gongju.WifiTool;
 import com.baidu.aip.asrwakeup3.uiasr.service.callService;
 import com.baidu.aip.asrwakeup3.uiasr.service.inservice;
 import com.baidu.aip.asrwakeup3.uiasr.service.mewkservice;
+
+import static java.lang.Thread.sleep;
 
 
 public class DguaCtSubVtell extends phoneDguaCtSubV {
 
     private inservice myBinder; //这个是我们定义的中间人对象
     private Context ct;
+
+
     public DguaCtSubVtell(Context context, String str, String str2, String str3) {
         super(context, str, str2, str3);
-        ct=context;
+        ct = context;
         Intent intent = new Intent(context, callService.class);
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
@@ -43,8 +51,7 @@ public class DguaCtSubVtell extends phoneDguaCtSubV {
         }
     };
 
-    protected void finalize( )
-    {
+    protected void finalize() {
         destory();
     }
 
@@ -53,14 +60,22 @@ public class DguaCtSubVtell extends phoneDguaCtSubV {
             ct.unbindService(serviceConnection);
         }
     }
+
     @Override
     public boolean onSingleTapUp(MotionEvent motionEvent) {
-        Toast.makeText(getContext(), "语音", Toast.LENGTH_SHORT).show();
-        System.out.println("jiqirenkaiqi----------------->");
-        //
+
+        Intent intent1 = new Intent(getContext(), callService.class);
+        getContext().startService(intent1);// 启动电话服务
+        try {
+            sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         if (myBinder != null) {
             myBinder.startwork(1);
         }
+
+
         return false;
     }
 
@@ -71,6 +86,7 @@ public class DguaCtSubVtell extends phoneDguaCtSubV {
 
     @Override
     public void onLongPress(MotionEvent motionEvent) {
-        // new PhoneMenuDialog(this, getContext(), ActivityCommon.SCREENWIDTH, ActivityCommon.SCREENWIDTH, R.layout.layout_dialog, R.style.Theme_dialog).show();
+
+
     }
 }

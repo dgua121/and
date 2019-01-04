@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
@@ -27,13 +29,37 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DguaCtSubVmess extends phoneDguaCtSubV {
+
+
     private Map m = new HashMap();
     private Context ct;
     private inservice myBinder; //这个是我们定义的中间人对象
+    public static Handler handler;
 
     public DguaCtSubVmess(Context context, String str, String str2, String str3, Map map) {
 
         super(context, str, str2, str3);
+
+        handler = new Handler() {
+
+            @Override
+            public void handleMessage(Message message) {
+
+
+                if (message.what == 1111) {
+
+                    if (myBinder != null) {
+                        myBinder.pausedwork();
+                    }
+                    ds1.setdown();
+
+                }
+
+            }
+
+        };
+
+
         ct = context;
         m = map;
         ds1.id = 1;
@@ -82,7 +108,6 @@ public class DguaCtSubVmess extends phoneDguaCtSubV {
         if (ActivityUiRecog.mInterstitialAd.isLoaded()) {
             ActivityUiRecog.mInterstitialAd.show();
         } else {
-           // Log.d("TAG", "The interstitial wasn't loaded yet.");
         }
            return false;
     }
@@ -111,9 +136,7 @@ public class DguaCtSubVmess extends phoneDguaCtSubV {
 
     @Override
     public void onLongPress(MotionEvent motionEvent) {
-        if (myBinder != null) {
-            myBinder.pausedwork();
-        }
+
     }
 
 }

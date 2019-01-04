@@ -23,12 +23,15 @@ public class DguaCtSubV1 extends ViewGroup implements GestureDetector.OnGestureL
     public CircleProgressView cv;
     private GestureDetector mGestureDetector;
     public int id = 0;
+    public static PhoneMenuDialog pd;
 
     public DguaCtSubV1(Context context) {
         super(context);
         this.cv = new CircleProgressView(context);
         this.mGestureDetector = new GestureDetector(context, (GestureDetector.OnGestureListener) this);
         setLongClickable(true);
+        pd = new PhoneMenuDialog(getContext(), ActivityCommon.SCREENWIDTH, ActivityCommon.SCREENHEIGHT*3/10, R.layout.layout_dialog, R.style.dialog1);
+        //pd.show();
         setOnTouchListener(new OnTouchListener() {
 
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -102,10 +105,10 @@ public class DguaCtSubV1 extends ViewGroup implements GestureDetector.OnGestureL
 
     @Override
     public boolean onDown(MotionEvent e) {
-        if (id == 1&&!kg) {
-
-            new PhoneMenuDialog(getContext(), ActivityCommon.SCREENWIDTH, ActivityCommon.SCREENWIDTH, R.layout.layout_dialog, R.style.dialog1).show();
-            setdown();
+        if (id == 1 && !kg) {
+            pd.show();
+            //new PhoneMenuDialog(getContext(), ActivityCommon.SCREENWIDTH, ActivityCommon.SCREENWIDTH, R.layout.layout_dialog, R.style.dialog1).show();
+            //setdown();
         }
         return false;
     }

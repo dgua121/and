@@ -1,6 +1,7 @@
 package com.baidu.aip.asrwakeup3.uiasr.view.view1;
 
 import android.content.Context;
+import android.os.Message;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
@@ -87,6 +88,10 @@ public class phoneDguaCtSubV extends ViewGroup implements OnGestureListener {
                     super.run();
                        Testmessage test1 = new Testmessage(ct);
                     test1.rename();
+                    Message msg = new Message();
+                    msg.what = 1241;
+                    msg.obj = 0;
+                    ActivityCommon.tf1.handler.sendMessage(msg);
                 }
             }.start();
         }

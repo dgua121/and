@@ -25,13 +25,8 @@ public class Testmessage {
     public void importSheet(String str) {
         try {
             // 1
-            //InputStream is = getClass().getResourceAsStream("/assets/2w.xls");
-            System.out.println(str);
             if (str != null) {
                 FileInputStream iss = new FileInputStream(new File("/storage/emulated/0/Download/message.xls"));
-                //System.out.println(str);
-                //InputStream fis;
-                //fis = getClass().getResource(str).openStream();
                 // 2
                 Workbook book = Workbook.getWorkbook(iss);
                 // 3
@@ -46,31 +41,22 @@ public class Testmessage {
                 Sheet sheet4 = book.getSheet(4);
                 int row4 = sheet4.getRows();
                 int aaa = 1;
-
                 // 4
                 for (int j1 = 0; j1 < row1; ++j1) {
                     // 5
                     for (int j2 = 0; j2 < row2; ++j2) {
                         for (int j3 = 0; j3 < row3; ++j3) {
-
                             for (int j = 0; j < row; ++j) {
-
                                 for (int j4 = 0; j4 < row4; ++j4) {
-
-
-                                    String a = sheet.getCell(0, j).getContents() + sheet1.getCell(0, j1).getContents() + sheet2.getCell(0, j2).getContents() + sheet3.getCell(0, j3).getContents() + sheet4.getCell(0, j4).getContents() ;
-                                    // System.out.println(a);
+                                    String a = sheet.getCell(0, j).getContents() + sheet1.getCell(0, j1).getContents() + sheet2.getCell(0, j2).getContents() + sheet3.getCell(0, j3).getContents() + sheet4.getCell(0, j4).getContents();
                                     mdb.insertData(a, str, "");
                                     aaa++;
-
-
                                 }
                             }
-                                Message msg = new Message();
-                                msg.what = 124;
-                                msg.obj = (int) aaa;
-                                ActivityCommon.tf1.handler.sendMessage(msg);
-
+                            Message msg = new Message();
+                            msg.what = 124;
+                            msg.obj = (int) aaa;
+                            ActivityCommon.tf1.handler.sendMessage(msg);
                         }
                     }
                 }
@@ -83,14 +69,14 @@ public class Testmessage {
                 book.close();
                 System.out.println("结束");
             }
-    } catch(IOException |
-    BiffException e)
+        } catch (IOException |
+                BiffException e)
 
-    {
-        e.printStackTrace();
+        {
+            e.printStackTrace();
+        }
+
     }
-
-}
 
     public String queryData(int a) {
         return mdb.queryData(a);
@@ -112,7 +98,8 @@ public class Testmessage {
 
         return mdb.gettime();
     }
-    public void rename(){
+
+    public void rename() {
         mdb.rename();
     }
 }

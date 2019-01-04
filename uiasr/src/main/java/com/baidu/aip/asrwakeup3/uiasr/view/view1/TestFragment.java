@@ -88,6 +88,7 @@ public class TestFragment extends Fragment {
                 }
                 if (message.what == 124) {
                     ((DguaCtV) textView).getchild1(3).setNU((int) (message.obj));
+
                 }
                 if (message.what == 1241) {
                     new Thread() {
@@ -99,6 +100,7 @@ public class TestFragment extends Fragment {
                         }
                     }.start();
                     ((DguaCtV) textView).getchild1(3).setdown();
+                    ((DguaCtV) textView).getchild1(4).setdown();
                 }
             }
         }
